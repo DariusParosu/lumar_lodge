@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mountain, Flame, Utensils, Wifi } from 'lucide-react';
+import { Mountain, Utensils, Wifi } from 'lucide-react';
 
 export const AmenitiesBar: React.FC = () => {
   const amenities = [
@@ -7,11 +7,6 @@ export const AmenitiesBar: React.FC = () => {
       icon: Mountain,
       label: 'Priveliște Montană',
       description: 'Vederi spectaculoase'
-    },
-    {
-      icon: Flame,
-      label: 'Șemineu Confortabil',
-      description: 'Căldură și atmosferă'
     },
     {
       icon: Utensils,
@@ -28,7 +23,7 @@ export const AmenitiesBar: React.FC = () => {
   return (
     <div className="bg-cream py-16 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3gap-8">
           {amenities.map((amenity, index) => {
             const Icon = amenity.icon;
             return (

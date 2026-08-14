@@ -4,9 +4,6 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { AmenitiesBar } from './components/AmenitiesBar';
 import { AboutSection } from './components/AboutSection';
-import { ExperiencesSection } from './components/ExperiencesSection';
-import { GallerySection } from './components/GallerySection';
-import { ReviewsSection } from './components/ReviewsSection';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 
@@ -17,9 +14,6 @@ function App() {
       <Hero />
       <AmenitiesBar />
       <AboutSection />
-      <ExperiencesSection />
-      <GallerySection />
-      <ReviewsSection />
       <Footer />
       <WhatsAppButton />
     </div>

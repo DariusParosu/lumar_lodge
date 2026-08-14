@@ -58,15 +58,6 @@ Aplicația React TypeScript + Tailwind CSS a fost finalizată cu succes!
 - Responsive grid (1 mobile, 2 tablet, 4 desktop)
 - Hover zoom effect pe imagini
 
-### ✓ ReviewsSection.tsx
-- Dark-green background cu text cream
-- 4 recenzii oaspeți cu:
-  - Star rating (lucide-react Star icon)
-  - Text review
-  - Nume și dată
-  - Hover shadow effects
-- Responsive layout 4 carduri
-
 ### ✓ Footer.tsx
 - 3 secțiuni: About, Contact, Google Maps
 - Contact info cu iconuri (MapPin, Phone, Mail)

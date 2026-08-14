@@ -8,7 +8,7 @@ export const AboutSection: React.FC = () => {
           {/* Image */}
           <div className="h-96 rounded-lg overflow-hidden shadow-lg">
             <img
-              src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop"
+              src="/night.jpg"
               alt="Lumar Lodge"
               className="w-full h-full object-cover hover:scale-110 transition duration-500"
             />
@@ -21,19 +21,20 @@ export const AboutSection: React.FC = () => {
             </h2>
 
             <p className="font-body text-text-dark mb-4 leading-relaxed">
-              Lumar Lodge este o cabană premium situată în Tohanița, aproape de Bran, în inima Carpații Curburii. 
-              Oferim o experiență autentică de retragere din agitația cotidianului, combinând confortul modern cu 
-              atmosfera tradițională montană.
+              LuMar Lodge Tohăniță Zarnesti se află în Zărneşti, la 5 km de Castelul Bran, și pune la dispoziție WiFi gratuit, o grădină, o bucătărie comună și un lounge comun. Această proprietate oferă acces la un balcon și parcare privată gratuită.
+            </p>
+
+            <p className="font-body text-text-dark mb-4 leading-relaxed">
+              Acest chalet cu terasă și vedere la munte include 3 dormitoare, un living, un televizor cu ecran plat, o bucătărie utilată, cu frigider și cuptor, precum și 3 băi cu duș. Acest chalet pune la dispoziția oaspeților prosoape și lenjerie de pat.
+            </p>
+
+            <p className="font-body text-text-dark mb-4 leading-relaxed">
+              Acest chalet pune la dispoziție un grătar.
             </p>
 
             <p className="font-body text-text-dark mb-6 leading-relaxed">
-              Fiecare detaliu a fost gândit cu atenție pentru a vă oferi o ședere memorabilă: din mobilier elegant 
-              la facilități de lux, totul este aici pentru a vă asigura relaxare completă.
+              LuMar Lodge Tohăniță Zarnesti se află la 17 km de Dino Parc și la 31 km de Piaţa Sfatului. Aeroportul Internațional Brașov-Ghimbav se află la 30 km.
             </p>
-
-            <button className="bg-gold-accent text-dark-green px-8 py-3 rounded-lg hover:bg-opacity-90 transition font-semibold font-body">
-              Explore Accommodations
-            </button>
           </div>
         </div>
       </div>
