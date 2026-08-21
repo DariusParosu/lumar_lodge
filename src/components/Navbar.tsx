@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -5,9 +6,9 @@ export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { label: 'Acasă', href: '#home' },
-    { label: 'Experiențe', href: '#experiences' },
-    { label: 'Galerie', href: '#gallery' },
+    { label: 'Acasă', to: '/' },
+    { label: 'Experiențe', to: '/experiente' },
+    { label: 'Galerie', to: '/galerie' },
   ];
 
   return (
@@ -24,13 +25,13 @@ export const Navbar: React.FC = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.label}
-                href={link.href}
+                to={link.to}
                 className="text-text-dark hover:text-gold-accent hover:text-xl transition font-body text-lg"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
@@ -57,14 +58,14 @@ export const Navbar: React.FC = () => {
           <div className="md:hidden pb-4">
             <div className="flex flex-col space-y-3">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
-                  href={link.href}
+                  to={link.to}
                   className="text-text-dark py-2 font-body"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
               <button className="bg-gold-accent text-cream w-full px-6 py-2 rounded-lg font-semibold mt-2">
                 Rezervă Direct
