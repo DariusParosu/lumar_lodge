@@ -22,9 +22,9 @@ export const ExperiencesSection: React.FC<ExperiencesProps> = ({
         </h3>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mb-12">
-        {items.map((attraction, index) => (
+        {items.map((attraction) => (
           <Card
-            key={index}
+            key={`${name}-${attraction.title}`}
             {...attraction}
           />
         ))}

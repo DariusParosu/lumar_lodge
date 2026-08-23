@@ -33,6 +33,7 @@ export const Footer: React.FC = () => {
           {/* Google Maps Embed */}
           <div className="rounded-lg overflow-hidden h-48 md:col-span-2 lg:col-span-1">
             <iframe
+                title="Lumar Lodge location map"
                 width="100%"
                 height="100%"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3751.725367239281!2d25.325488979345707!3d45.53644949999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b3484609a8a593%3A0x609d4bce9c424147!2zTHVNYXIgTG9kZ2UgVG9oxINuacibxIMgWmFybmVzdGk!5e1!3m2!1sro!2sro!4v1786733344837!5m2!1sro!2sro"
@@ -57,7 +58,7 @@ export const Footer: React.FC = () => {
 
             {/* Copyright */}
             <p className="font-body text-cream/60 text-sm text-center">
-              © 2024 Lumar Lodge. All rights reserved.
+              © 2026 Lumar Lodge. All rights reserved.
             </p>
           </div>
         </div>

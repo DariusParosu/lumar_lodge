@@ -4,25 +4,29 @@ import { MapPin } from 'lucide-react';
 interface CardProps {
   title: string;
   description: string;
-  image: string;
+  map: string;
   location: string;
 }
 
 export const Card: React.FC<CardProps> = ({
   title,
   description,
-  image,
+  map,
   location,
 }) => {
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl hover:scale-105 transition group cursor-pointer">
       {/* Image */}
       <div className="relative h-64 overflow-hidden">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
-        />
+        <iframe
+          title={`${title} map`}
+          width="100%"
+          height="100%"
+          src={ map }
+          allowFullScreen={true}
+          loading="lazy"
+          referrerPolicy="strict-origin-when-cross-origin"
+        ></iframe>
       </div>
 
       {/* Content */}
