@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
 import '../App.css';
 import { GalleryTab, galleryImages, galleryTabs } from '../components/GalleryData';
+import { useTranslation } from 'react-i18next';
 
 export const Gallery: React.FC = () => {
   const [activeTab, setActiveTab] = useState<GalleryTab>('exterior');
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const { t } = useTranslation();
+
+  const tabLabels: Record<GalleryTab, string> = {
+    exterior: t('gallery.exterior'),
+    kitchen: t('gallery.kitchen'),
+    bedrooms: t('gallery.bedrooms'),
+    bathrooms: t('gallery.bathrooms'),
+  };
 
   return (
     <div id="gallery" className="bg-cream py-28 px-4">
@@ -12,10 +21,10 @@ export const Gallery: React.FC = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="font-display text-5xl font-bold text-dark-green mb-3">
-            Galerie Foto
+            {t('gallery.title')}
           </h2>
           <p className="text-dark-green/70 text-lg">
-            Explorați frumusețea proprietății noastre
+            {t('gallery.subtitle')}
           </p>
         </div>
 
@@ -31,7 +40,7 @@ export const Gallery: React.FC = () => {
                   : 'bg-white text-dark-green border-2 border-dark-green hover:bg-gold-accent hover:border-gold-accent'
               }`}
             >
-              {tab.label}
+              {tabLabels[tab.id]}
               <span className="ml-2 text-sm opacity-75">
                 ({galleryImages[tab.id].length})
               </span>
@@ -59,7 +68,7 @@ export const Gallery: React.FC = () => {
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-green/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-4 text-cream w-full">
-                    <p className="text-sm font-semibold">Vizionează în mărime completă</p>
+                    <p className="text-sm font-semibold">{t('gallery.viewFullSize')}</p>
                   </div>
                 </div>
 
@@ -99,7 +108,7 @@ export const Gallery: React.FC = () => {
           <div className="relative max-w-4xl max-h-screen w-full animate-in zoom-in duration-300">
             <img
               src={selectedImage}
-              alt="Full size gallery image"
+              alt="Expanded gallery view"
               className="w-full h-full object-contain rounded-lg"
             />
             

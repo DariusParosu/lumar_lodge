@@ -2,9 +2,9 @@ import React from 'react';
 import '../App.css';
 import { ExperiencesSection } from "../components/ExperiencesSection";
 import { TreePine, Castle, UtensilsCrossed, Compass } from "lucide-react";
-import { ExperiencesData } from "../components/ExperiencesData";
+import { useExperiencesData } from "../components/ExperiencesData";
+import { useTranslation } from 'react-i18next';
 
-// Harta pentru asocierea iconițelor în funcție de ID-ul secțiunii
 const sectionIcons: Record<string, React.ReactNode> = {
   natura: <TreePine size={24} />,
   atractii: <Castle size={24} />,
@@ -13,20 +13,23 @@ const sectionIcons: Record<string, React.ReactNode> = {
 };
 
 export const Experiences: React.FC = () => {
+  const { t } = useTranslation();
+  const experiencesData = useExperiencesData();
+
   return (
     <div id="experiences" className="bg-cream py-28 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="font-display text-5xl font-bold text-dark-green mb-3">
-            Experiențe Locale
+            {t('experiences.title')}
           </h2>
           <p className="text-dark-green/70 text-lg">
-            Descoperă atracțiile și destinațiile din jur
+            {t('experiences.subtitle')}
           </p>
         </div>
 
-        {ExperiencesData.map((section) => (
+        {experiencesData.map((section) => (
           <ExperiencesSection
             key={section.id}
             name={section.name}

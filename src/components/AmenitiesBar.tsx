@@ -1,22 +1,25 @@
 import React from 'react';
 import { Mountain, Utensils, Wifi } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export const AmenitiesBar: React.FC = () => {
+  const { t } = useTranslation();
+
   const amenities = [
     {
       icon: Mountain,
-      label: 'Priveliște Montană',
-      description: 'Vederi spectaculoase'
+      label: t('amenities.mountain'),
+      description: t('amenities.mountainDesc')
     },
     {
       icon: Utensils,
-      label: 'Grătar & Foișor',
-      description: 'Mese în aer liber'
+      label: t('amenities.grill'),
+      description: t('amenities.grillDesc')
     },
     {
       icon: Wifi,
-      label: 'Wi-Fi & Parcare',
-      description: 'Conectivitate totală'
+      label: t('amenities.wifi'),
+      description: t('amenities.wifiDesc')
     }
   ];
 

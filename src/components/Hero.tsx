@@ -1,6 +1,9 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const Hero: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <div id="home" className="relative w-full h-screen bg-center bg-cover" style={{
       backgroundImage: 'url(/images/HeroBg.webp)',
@@ -12,12 +15,12 @@ export const Hero: React.FC = () => {
       <div className="relative h-full flex flex-col items-center justify-center text-center px-4 pt-16">
         {/* Main Title */}
         <h1 className="font-display text-5xl md:text-7xl font-bold text-cream mb-4 max-w-4xl animate-in fade-in slide-in-from-bottom-4 duration-700">
-          Refugiul tău din inima munților
+          {t('hero.title')}
         </h1>
 
         {/* Subtitle */}
         <p className="font-body text-xl md:text-2xl text-cream/90 mb-8 max-w-2xl animate-in fade-in slide-in-from-bottom-8 duration-1000">
-          Descoperă liniștea la Lumar Lodge, Tohanița
+          {t('hero.subtitle')}
         </p>
 
         {/* Decorative line */}

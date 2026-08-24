@@ -1,7 +1,10 @@
 import React from 'react';
 import { Phone, MapPin } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export const Footer: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <footer id="contact" className="bg-dark-green text-cream py-16 px-4">
       <div className="max-w-7xl mx-auto">
@@ -11,21 +14,21 @@ export const Footer: React.FC = () => {
           <div>
             <h3 className="font-display text-2xl font-bold mb-4">Lumar Lodge</h3>
             <p className="font-body text-cream/80 leading-relaxed">
-              O cabană de lux în inima Carpații Curburii, oferind experiențe autentice și confort premium.
+              {t('footer.about')}
             </p>
           </div>
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-display text-lg font-semibold mb-4">Contact</h4>
+            <h4 className="font-display text-lg font-semibold mb-4">{t('footer.contact')}</h4>
             <div className="space-y-3 font-body text-cream/80">
               <div className="flex items-center gap-3">
                 <MapPin size={20} className="text-gold-accent" />
-                <span>Str. Tohănița116c, 505800 Zărneşti, România</span>
+                <span>{t('footer.address')}</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={20} className="text-gold-accent" />
-                <span>+40 756 294 324</span>
+                <span>{t('footer.phone')}</span>
               </div>
             </div>
           </div>
@@ -49,16 +52,16 @@ export const Footer: React.FC = () => {
             {/* Social Icons */}
             <div className="flex gap-6">
               <a href="https://www.facebook.com/profile.php?id=61585662920761&locale=ro_RO" className="text-cream hover:text-gold-accent transition">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
               </a>
               <a href="https://www.instagram.com/lumar.lodge/" className="text-cream hover:text-gold-accent transition">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37m1.5-4.87h.01"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37m1.5-4.87h.01"/></svg>
               </a>
             </div>
 
             {/* Copyright */}
             <p className="font-body text-cream/60 text-sm text-center">
-              © 2026 Lumar Lodge. All rights reserved.
+              {t('footer.copyright')}
             </p>
           </div>
         </div>

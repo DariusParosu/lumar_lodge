@@ -1,15 +1,21 @@
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { LanguageSwitcher } from './LanguageSwitcher';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [language, setLanguage] = useState<'ro' | 'en'>('ro');
+  const { t } = useTranslation();
+  const { lang } = useParams<{ lang: string }>();
+
+  const experiencesPath = lang === 'en' ? '/experience' : '/experiente';
+  const galleryPath = lang === 'en' ? '/gallery' : '/galerie';
 
   const navLinks = [
-    { label: 'Acasă', to: '/' },
-    { label: 'Experiențe', to: '/experiente' },
-    { label: 'Galerie', to: '/galerie' },
+    { label: t('navbar.home'), to: `/${lang}/` },
+    { label: t('navbar.experiences'), to: `/${lang}${experiencesPath}` },
+    { label: t('navbar.gallery'), to: `/${lang}${galleryPath}` },
   ];
 
   return (
@@ -19,9 +25,9 @@ export const Navbar: React.FC = () => {
         <div className="relative flex items-center py-8 justify-center">
           {/* Logo - Absolute Left */}
           <div className="absolute left-0 flex-shrink-0 -rotate-3 hover:-rotate-6 transition-transform duration-300 min-w-fit">
-            <a href="/" className="text-4xl md:text-5xl font-bold text-dark-green font-display hover:text-gold-accent transition-colors duration-300">
+            <Link to={`/${lang}/`} className="text-4xl md:text-5xl font-bold text-dark-green font-display hover:text-gold-accent transition-colors duration-300">
               Lumar Lodge
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -40,35 +46,7 @@ export const Navbar: React.FC = () => {
 
           {/* Language Switcher - Absolute Right */}
           <div className="absolute right-0 hidden md:flex flex-shrink-0 min-w-fit">
-            <div className="flex items-center gap-4 text-text-dark font-body">
-              <button
-                onClick={() => setLanguage('ro')}
-                className={`relative font-medium text-m transition-all duration-300 pb-1 ${
-                  language === 'ro'
-                    ? 'text-gold-accent font-semibold'
-                    : 'text-text-dark hover:text-gold-accent'
-                }`}
-              >
-                RO
-                {language === 'ro' && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gold-accent"></span>
-                )}
-              </button>
-              <span className="text-text-dark text-opacity-20">/</span>
-              <button
-                onClick={() => setLanguage('en')}
-                className={`relative font-medium text-m transition-all duration-300 pb-1 ${
-                  language === 'en'
-                    ? 'text-gold-accent font-semibold'
-                    : 'text-text-dark hover:text-gold-accent'
-                }`}
-              >
-                EN
-                {language === 'en' && (
-                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-gold-accent"></span>
-                )}
-              </button>
-            </div>
+            <LanguageSwitcher />
           </div>
 
           {/* Mobile Menu Button */}
@@ -98,31 +76,21 @@ export const Navbar: React.FC = () => {
               ))}
               
               {/* Language Switcher in Mobile Menu */}
-              <div className="border-t border-gold-accent border-opacity-20 mt-4 pt-4">
-                <div className="flex items-center justify-between px-4 py-3">
-                  <span className="text-text-dark font-body font-medium text-sm">Limbă:</span>
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => setLanguage('ro')}
-                      className={`px-3 py-1.5 rounded font-semibold text-sm transition-all duration-300 ${
-                        language === 'ro'
-                          ? 'bg-gold-accent text-cream'
-                          : 'bg-dark-green bg-opacity-10 text-text-dark hover:bg-opacity-20'
-                      }`}
-                    >
-                      RO
-                    </button>
-                    <button
-                      onClick={() => setLanguage('en')}
-                      className={`px-3 py-1.5 rounded font-semibold text-sm transition-all duration-300 ${
-                        language === 'en'
-                          ? 'bg-gold-accent text-cream'
-                          : 'bg-dark-green bg-opacity-10 text-text-dark hover:bg-opacity-20'
-                      }`}
-                    >
-                      EN
-                    </button>
-                  </div>
+              <div className="border-t border-gold-accent border-opacity-20 mt-4 pt-4 px-4">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="text-text-dark font-body font-medium text-sm">{t('navbar.language')}:</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <MobileLanguageButton
+                    lang="ro"
+                    currentLang={lang}
+                    label="RO"
+                  />
+                  <MobileLanguageButton
+                    lang="en"
+                    currentLang={lang}
+                    label="EN"
+                  />
                 </div>
               </div>
             </div>
@@ -130,5 +98,32 @@ export const Navbar: React.FC = () => {
         )}
       </div>
     </nav>
+  );
+};
+
+const MobileLanguageButton: React.FC<{ lang: 'ro' | 'en'; currentLang?: string; label: string }> = ({
+  lang,
+  currentLang,
+  label,
+}) => {
+  const { i18n } = useTranslation();
+
+  const handleClick = () => {
+    if (lang === currentLang) return;
+    i18n.changeLanguage(lang);
+    window.location.href = `/${lang}`;
+  };
+
+  return (
+    <button
+      onClick={handleClick}
+      className={`flex-1 px-3 py-1.5 rounded font-semibold text-sm transition-all duration-300 ${
+        lang === currentLang
+          ? 'bg-gold-accent text-cream'
+          : 'bg-dark-green bg-opacity-10 text-text-dark hover:bg-opacity-20'
+      }`}
+    >
+      {label}
+    </button>
   );
 };

@@ -1,6 +1,9 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const AboutSection: React.FC = () => {
+  const { t } = useTranslation();
+
   return (
     <div id="accommodation" className="bg-cream py-20 px-4">
       <div className="max-w-7xl mx-auto">
@@ -23,24 +26,24 @@ export const AboutSection: React.FC = () => {
             </div>
 
             <h2 className="font-display text-5xl font-bold text-dark-green mb-6">
-              Despre Noi
+              {t('about.title')}
             </h2>
 
             <div className="space-y-4">
               <p className="font-body text-text-dark leading-relaxed text-lg">
-                LuMar Lodge Tohăniță Zarnesti se află în Zărneşti, la 5 km de Castelul Bran, și pune la dispoziție WiFi gratuit, o grădină, o bucătărie comună și un lounge comun. Această proprietate oferă acces la un balcon și parcare privată gratuită.
+                {t('about.description1')}
               </p>
 
               <p className="font-body text-text-dark leading-relaxed text-lg">
-                Acest chalet cu terasă și vedere la munte include 3 dormitoare, un living, un televizor cu ecran plat, o bucătărie utilată, cu frigider și cuptor, precum și 3 băi cu duș. Acest chalet pune la dispoziția oaspeților prosoape și lenjerie de pat.
+                {t('about.description2')}
               </p>
 
               <p className="font-body text-text-dark leading-relaxed text-lg">
-                Acest chalet pune la dispoziție un grătar.
+                {t('about.description3')}
               </p>
 
               <p className="font-body text-text-dark leading-relaxed text-lg">
-                LuMar Lodge Tohăniță Zarnesti se află la 17 km de Dino Parc și la 31 km de Piaţa Sfatului. Aeroportul Internațional Brașov-Ghimbav se află la 30 km.
+                {t('about.description4')}
               </p>
             </div>
 
