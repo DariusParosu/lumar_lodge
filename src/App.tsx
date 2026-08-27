@@ -6,6 +6,7 @@ import { Navbar } from './components/Navbar';
 import { Home } from './pages/Home';
 import { Experiences } from './pages/Experiences';
 import { Gallery } from './pages/Gallery';
+import { Details } from './pages/Details';
 import { Footer } from './components/Footer';
 import { WhatsAppButton } from './components/WhatsAppButton';
 
@@ -32,6 +33,8 @@ const LanguageWrapper: React.FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/experiente" element={<Experiences />} />
         <Route path="/experience" element={<Experiences />} />
+        <Route path="/detalii" element={<Details />} />
+        <Route path="/details" element={<Details />} />
         <Route path="/galerie" element={<Gallery />} />
         <Route path="/gallery" element={<Gallery />} />
       </Routes>

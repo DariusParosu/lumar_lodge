@@ -10,11 +10,13 @@ export const Navbar: React.FC = () => {
   const { lang } = useParams<{ lang: string }>();
 
   const experiencesPath = lang === 'en' ? '/experience' : '/experiente';
+  const detailsPath = lang === 'en' ? '/details' : '/detalii';
   const galleryPath = lang === 'en' ? '/gallery' : '/galerie';
 
   const navLinks = [
     { label: t('navbar.home'), to: `/${lang}/` },
     { label: t('navbar.experiences'), to: `/${lang}${experiencesPath}` },
+    { label: t('navbar.details'), to: `/${lang}${detailsPath}` },
     { label: t('navbar.gallery'), to: `/${lang}${galleryPath}` },
   ];
 
@@ -31,7 +33,7 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-12">
+          <div className="hidden lg:flex items-center gap-12">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
@@ -45,12 +47,12 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Language Switcher - Absolute Right */}
-          <div className="absolute right-0 hidden md:flex flex-shrink-0 min-w-fit">
+          <div className="absolute right-0 hidden lg:flex flex-shrink-0 min-w-fit">
             <LanguageSwitcher />
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden ml-auto">
+          <div className="lg:hidden ml-auto">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-dark-green focus:outline-none p-2 hover:bg-cream rounded-lg transition-colors duration-300"
@@ -62,7 +64,7 @@ export const Navbar: React.FC = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-6 border-t border-gold-accent border-opacity-20">
+          <div className="lg:hidden pb-6 border-t border-gold-accent border-opacity-20">
             <div className="flex flex-col space-y-2 pt-4">
               {navLinks.map((link) => (
                 <Link
