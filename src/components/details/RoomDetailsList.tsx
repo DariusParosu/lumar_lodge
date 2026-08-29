@@ -13,14 +13,14 @@ export const RoomDetailsList: React.FC<RoomDetailsListProps> = ({ rooms }) => (
       return (
         <div
           key={room.title}
-          className="flex items-start gap-4 rounded-2xl border border-dark-green/10 bg-cream p-4"
+          className="group flex items-start gap-4 rounded-2xl border border-dark-green/10 p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
         >
-          <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-dark-green text-cream">
-            <Icon size={20} />
+          <span className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full bg-dark-green text-cream transition-all duration-300 group-hover:bg-gold-accent group-hover:text-dark-green">
+            <Icon size={22} />
           </span>
           <div>
-            <h4 className="text-base font-semibold text-dark-green">{room.title}</h4>
-            <p className="mt-1 text-sm leading-relaxed text-dark-green/65">{room.description}</p>
+            <h4 className="text-xl font-semibold text-dark-green">{room.title}</h4>
+            <p className="mt-1 text-base leading-relaxed text-dark-green/65">{room.description}</p>
           </div>
         </div>
       );

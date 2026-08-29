@@ -1,5 +1,4 @@
 import {
-  Ban,
   Bath,
   Bed,
   CarFront,
@@ -7,10 +6,9 @@ import {
   Clock3,
   DoorOpen,
   Dog,
-  Flame,
+  UsersRound,
   PartyPopper,
   PlaneTakeoff,
-  ShieldAlert,
   Trees,
   UtensilsCrossed,
   UserRound,
@@ -18,7 +16,6 @@ import {
 } from 'lucide-react';
 import type { TFunction } from 'i18next';
 import type {
-  NoticeItem,
   OutdoorFeature,
   PolicyItem,
   RoomDetail,
@@ -28,9 +25,13 @@ import type {
 export interface DetailsData {
   propertyFacts: StatItem[];
   scheduleFacts: StatItem[];
-  bookingNotes: NoticeItem[];
   ruleFacts: PolicyItem[];
   amenityFacts: PolicyItem[];
+  detailedAmenitiesSection: {
+    title: string;
+    subtitle: string;
+  };
+  detailedAmenities: DetailedAmenityCategory[];
   roomConfiguration: RoomDetail[];
   outdoorFeatures: OutdoorFeature[];
   outdoorImage: {
@@ -39,32 +40,71 @@ export interface DetailsData {
   };
 }
 
+export interface DetailedAmenityCategory {
+  title: string;
+  items: string[];
+}
+
 export const createDetailsData = (t: TFunction): DetailsData => ({
   propertyFacts: [
-    { icon: Bed, label: t('details.stats.bedrooms.label'), value: '3', subtext: t('details.stats.bedrooms.subtext') },
-    { icon: Bath, label: t('details.stats.bathrooms.label'), value: '3', subtext: t('details.stats.bathrooms.subtext') },
-    { icon: UtensilsCrossed, label: t('details.stats.kitchen.label'), value: '1', subtext: t('details.stats.kitchen.subtext') },
-    { icon: Trees, label: t('details.stats.area.label'), value: '140 m²', subtext: t('details.stats.area.subtext') },
+    { icon: Bed, label: t('details.stats.bedrooms.label'), value: '3' },
+    { icon: Bath, label: t('details.stats.bathrooms.label'), value: '3' },
+    { icon: UtensilsCrossed, label: t('details.stats.kitchen.label'), value: '1' },
+    { icon: Trees, label: t('details.stats.area.label'), value: '140 m²' },
   ],
   scheduleFacts: [
-    { icon: Clock3, label: t('details.schedule.checkin'), value: '14:00 - 20:00', subtext: t('details.schedule.checkinSubtext') },
-    { icon: DoorOpen, label: t('details.schedule.checkout'), value: '08:00 - 11:00', subtext: t('details.schedule.checkoutSubtext') },
-  ],
-  bookingNotes: [
-    { icon: UserRound, title: t('details.booking.guestTitle'), text: t('details.booking.guestText') },
-    { icon: ShieldAlert, title: t('details.booking.hostTitle'), text: t('details.booking.hostText') },
+    { icon: Clock3, label: t('details.schedule.checkin'), value: '14:00 - 20:00' },
+    { icon: DoorOpen, label: t('details.schedule.checkout'), value: '08:00 - 11:00' },
   ],
   ruleFacts: [
-    { icon: CigaretteOff, title: t('details.rules.smokingTitle'), text: t('details.rules.smokingText') },
-    { icon: PartyPopper, title: t('details.rules.partiesTitle'), text: t('details.rules.partiesText') },
-    { icon: Ban, title: t('details.rules.eventsTitle'), text: t('details.rules.eventsText') },
-    { icon: Dog, title: t('details.rules.petsTitle'), text: t('details.rules.petsText') },
+    { icon: CigaretteOff, title: t('details.rules.smokingTitle') },
+    { icon: PartyPopper, title: t('details.rules.partiesTitle') },
+    { icon: Dog, title: t('details.rules.petsTitle') },
   ],
   amenityFacts: [
-    { icon: CarFront, title: t('details.amenities.parkingTitle'), text: t('details.amenities.parkingText') },
-    { icon: PlaneTakeoff, title: t('details.amenities.shuttleTitle'), text: t('details.amenities.shuttleText') },
-    { icon: Wifi, title: t('details.amenities.wifiTitle'), text: t('details.amenities.wifiText') },
-    { icon: Flame, title: t('details.amenities.heatingTitle'), text: t('details.amenities.heatingText') },
+    { icon: CarFront, title: t('details.amenities.parkingTitle') },
+    { icon: PlaneTakeoff, title: t('details.amenities.shuttleTitle') },
+    { icon: Wifi, title: t('details.amenities.wifiTitle') },
+    { icon: UsersRound, title: t('details.amenities.familyTitle') },
+  ],
+  detailedAmenitiesSection: {
+    title: t('details.detailedAmenities.title'),
+    subtitle: t('details.detailedAmenities.subtitle'),
+  },
+  detailedAmenities: [
+    {
+      title: t('details.detailedAmenities.kitchenDiningTitle'),
+      items: [
+        t('details.detailedAmenities.kitchenDiningItems.fridge'),
+        t('details.detailedAmenities.kitchenDiningItems.stoveOven'),
+        t('details.detailedAmenities.kitchenDiningItems.microwave'),
+        t('details.detailedAmenities.kitchenDiningItems.espressoMachine'),
+        t('details.detailedAmenities.kitchenDiningItems.toasterKettle'),
+        t('details.detailedAmenities.kitchenDiningItems.cookwareTableware'),
+        t('details.detailedAmenities.kitchenDiningItems.cleaningProducts'),
+      ],
+    },
+    {
+      title: t('details.detailedAmenities.bedBathTitle'),
+      items: [
+        t('details.detailedAmenities.bedBathItems.bedLinen'),
+        t('details.detailedAmenities.bedBathItems.towels'),
+        t('details.detailedAmenities.bedBathItems.hairDryer'),
+        t('details.detailedAmenities.bedBathItems.toiletries'),
+        t('details.detailedAmenities.bedBathItems.slippers'),
+        t('details.detailedAmenities.bedBathItems.wardrobe'),
+      ],
+    },
+    {
+      title: t('details.detailedAmenities.entertainmentComfortTitle'),
+      items: [
+        t('details.detailedAmenities.entertainmentComfortItems.smartTv'),
+        t('details.detailedAmenities.entertainmentComfortItems.fireplace'),
+        t('details.detailedAmenities.entertainmentComfortItems.heating'),
+        t('details.detailedAmenities.entertainmentComfortItems.soundproofing'),
+        t('details.detailedAmenities.entertainmentComfortItems.bedsideOutlets'),
+      ],
+    },
   ],
   roomConfiguration: [
     { icon: Bed, title: t('details.rooms.bedroom1.title'), description: t('details.rooms.bedroom1.description') },

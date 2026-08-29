@@ -19,10 +19,16 @@ export const LanguageSwitcher: React.FC = () => {
     let newPath = currentPath.replace(`/${lang}`, `/${newLang}`);
     
     // Handle route translations
+    if (newPath.includes('/detalii')) {
+      newPath = newPath.replace('/detalii', newLang === 'en' ? '/details' : '/detalii');
+    } else if (newPath.includes('/details')) {
+      newPath = newPath.replace('/details', newLang === 'en' ? '/details' : '/detalii');
+    }
+
     if (newPath.includes('/experiente')) {
-      newPath = newPath.replace('/experiente', newLang === 'en' ? '/experience' : '/experiente');
-    } else if (newPath.includes('/experience')) {
-      newPath = newPath.replace('/experience', newLang === 'en' ? '/experience' : '/experiente');
+      newPath = newPath.replace('/experiente', newLang === 'en' ? '/experiences' : '/experiente');
+    } else if (newPath.includes('/experiences')) {
+      newPath = newPath.replace('/experiences', newLang === 'en' ? '/experiences' : '/experiente');
     }
     
     if (newPath.includes('/galerie')) {

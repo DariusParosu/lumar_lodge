@@ -32,7 +32,7 @@ const LanguageWrapper: React.FC = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/experiente" element={<Experiences />} />
-        <Route path="/experience" element={<Experiences />} />
+        <Route path="/experiences" element={<Experiences />} />
         <Route path="/detalii" element={<Details />} />
         <Route path="/details" element={<Details />} />
         <Route path="/galerie" element={<Gallery />} />

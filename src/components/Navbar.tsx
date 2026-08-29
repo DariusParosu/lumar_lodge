@@ -9,7 +9,7 @@ export const Navbar: React.FC = () => {
   const { t } = useTranslation();
   const { lang } = useParams<{ lang: string }>();
 
-  const experiencesPath = lang === 'en' ? '/experience' : '/experiente';
+  const experiencesPath = lang === 'en' ? '/experiences' : '/experiente';
   const detailsPath = lang === 'en' ? '/details' : '/detalii';
   const galleryPath = lang === 'en' ? '/gallery' : '/galerie';
 

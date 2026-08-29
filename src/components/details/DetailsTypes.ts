@@ -4,19 +4,11 @@ export interface StatItem {
   icon: LucideIcon;
   label: string;
   value: string;
-  subtext: string;
 }
 
 export interface PolicyItem {
   icon: LucideIcon;
   title: string;
-  text?: string;
-}
-
-export interface NoticeItem {
-  icon: LucideIcon;
-  title: string;
-  text: string;
 }
 
 export interface RoomDetail {
