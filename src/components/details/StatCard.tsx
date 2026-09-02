@@ -1,5 +1,5 @@
 import React from 'react';
-import type { StatItem } from './DetailsTypes';
+import type { StatItem } from '../../data/details';
 
 export const StatCard: React.FC<StatItem> = ({ icon: Icon, label, value }) => (
   <div className="group flex h-full items-start gap-4 rounded-2xl border border-dark-green/10 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">

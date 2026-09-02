@@ -25,7 +25,7 @@ export const Card: React.FC<CardProps> = ({
       className="bg-white rounded-xl shadow-md hover:shadow-2xl overflow-hidden transition-all duration-300 transform hover:-translate-y-2 group cursor-pointer"
     >
       {/* Map Container */}
-      <div className="relative h-64 overflow-hidden bg-gray-200">
+      <div className="relative h-64 overflow-hidden bg-gray-200 group-hover:scale-110 transition-transform duration-500">
         <iframe
           title={`${title} map`}
           width="100%"
@@ -34,7 +34,6 @@ export const Card: React.FC<CardProps> = ({
           allowFullScreen={true}
           loading="lazy"
           referrerPolicy="strict-origin-when-cross-origin"
-          className="group-hover:scale-110 transition-transform duration-500"
         />
         
         {/* Overlay */}

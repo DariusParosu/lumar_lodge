@@ -1,5 +1,5 @@
 import React from 'react';
-import type { PolicyItem } from './DetailsTypes';
+import type { PolicyItem } from '../../data/details';
 
 export const PolicyCard: React.FC<PolicyItem> = ({ icon: Icon, title }) => (
   <div className="group flex items-center gap-4 rounded-2xl border border-dark-green/10 bg-white/95 p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">

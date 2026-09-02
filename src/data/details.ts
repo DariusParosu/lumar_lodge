@@ -6,7 +6,6 @@ import {
   Clock3,
   DoorOpen,
   Dog,
-  UsersRound,
   PartyPopper,
   PlaneTakeoff,
   Trees,
@@ -14,13 +13,34 @@ import {
   UserRound,
   Wifi,
 } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 import type { TFunction } from 'i18next';
-import type {
-  OutdoorFeature,
-  PolicyItem,
-  RoomDetail,
-  StatItem,
-} from './DetailsTypes';
+
+export interface StatItem {
+  icon: LucideIcon;
+  label: string;
+  value: string;
+}
+
+export interface PolicyItem {
+  icon: LucideIcon;
+  title: string;
+}
+
+export interface RoomDetail {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+}
+
+export interface OutdoorFeature {
+  label: string;
+}
+
+export interface DetailedAmenityCategory {
+  title: string;
+  items: string[];
+}
 
 export interface DetailsData {
   propertyFacts: StatItem[];
@@ -38,11 +58,6 @@ export interface DetailsData {
     src: string;
     alt: string;
   };
-}
-
-export interface DetailedAmenityCategory {
-  title: string;
-  items: string[];
 }
 
 export const createDetailsData = (t: TFunction): DetailsData => ({
@@ -65,7 +80,7 @@ export const createDetailsData = (t: TFunction): DetailsData => ({
     { icon: CarFront, title: t('details.amenities.parkingTitle') },
     { icon: PlaneTakeoff, title: t('details.amenities.shuttleTitle') },
     { icon: Wifi, title: t('details.amenities.wifiTitle') },
-    { icon: UsersRound, title: t('details.amenities.familyTitle') },
+    { icon: UserRound, title: t('details.amenities.familyTitle') },
   ],
   detailedAmenitiesSection: {
     title: t('details.detailedAmenities.title'),

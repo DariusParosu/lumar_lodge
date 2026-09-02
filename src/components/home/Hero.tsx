@@ -5,7 +5,7 @@ export const Hero: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <div id="home" className="relative w-full h-screen bg-center bg-cover" style={{
+    <div id="home" className="relative w-full h-[75vh] md:h-screen bg-center bg-cover" style={{
       backgroundImage: 'url(/images/HeroBg.webp)',
     }}>
       {/* Overlay with gradient */}

@@ -1,8 +1,8 @@
 import React from 'react';
 import '../App.css';
-import { ExperiencesSection } from "../components/ExperiencesSection";
+import { ExperiencesSection } from "../components/experiences/ExperiencesSection";
 import { TreePine, Castle, UtensilsCrossed, Compass } from "lucide-react";
-import { useExperiencesData } from "../components/ExperiencesData";
+import { useExperiencesData } from "../data/experiences";
 import { useTranslation } from 'react-i18next';
 
 const sectionIcons: Record<string, React.ReactNode> = {
@@ -17,7 +17,7 @@ export const Experiences: React.FC = () => {
   const experiencesData = useExperiencesData();
 
   return (
-    <div id="experiences" className="bg-cream py-28 px-4">
+    <div id="experiences" className="bg-cream pb-20 pt-32 xl:pt-28 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

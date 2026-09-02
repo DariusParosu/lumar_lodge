@@ -5,6 +5,10 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 const resources = {
   ro: {
     translation: {
+      whatsapp: {
+        message: 'Salut! Sunt interesat de LuMar Lodge.',
+        text: 'Chat pe Whatsapp!'
+      },
       navbar: {
         home: 'Acasă',
         experiences: 'Experiențe',
@@ -14,7 +18,7 @@ const resources = {
       },
       hero: {
         title: 'Refugiul tău din inima munților',
-        subtitle: 'Descoperă liniștea la Lumar Lodge, Tohanița',
+        subtitle: 'Descoperă liniștea la LuMar Lodge, Tohanița',
       },
       about: {
         title: 'Despre Noi',
@@ -222,12 +226,16 @@ const resources = {
         contact: 'Contact',
         address: 'Str. Tohănița 116c, 505800 Zărneşti, România',
         phone: '+40 756 294 324',
-        copyright: '© 2026 Lumar Lodge. All rights reserved.',
+        copyright: '© 2026 LuMar Lodge. All rights reserved.',
       },
     },
   },
   en: {
     translation: {
+      whatsapp: {
+        message: 'Hello! I\'m interested in LuMar Lodge.',
+        text: 'Chat on Whatsapp!'
+      },
       navbar: {
         home: 'Home',
         experiences: 'Experiences',
@@ -237,7 +245,7 @@ const resources = {
       },
       hero: {
         title: 'Your refuge in the heart of the mountains',
-        subtitle: 'Discover peace at Lumar Lodge, Tohanita',
+        subtitle: 'Discover peace at LuMar Lodge, Tohanita',
       },
       about: {
         title: 'About Us',
@@ -446,7 +454,7 @@ const resources = {
         contact: 'Contact',
         address: 'Str. Tohanita 116c, 505800 Zarnesti, Romania',
         phone: '+40 756 294 324',
-        copyright: '© 2026 Lumar Lodge. All rights reserved.',
+        copyright: '© 2026 LuMar Lodge. All rights reserved.',
       },
     },
   },

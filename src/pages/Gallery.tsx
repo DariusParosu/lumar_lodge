@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../App.css';
-import { GalleryTab, galleryImages, galleryTabs } from '../components/GalleryData';
+import { GalleryTab, galleryImages, galleryTabs } from '../data/gallery';
 import { useTranslation } from 'react-i18next';
 
 export const Gallery: React.FC = () => {
@@ -16,7 +16,7 @@ export const Gallery: React.FC = () => {
   };
 
   return (
-    <div id="gallery" className="bg-cream py-28 px-4">
+    <div id="gallery" className="bg-cream pb-20 pt-32 xl:pt-28 px-4">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

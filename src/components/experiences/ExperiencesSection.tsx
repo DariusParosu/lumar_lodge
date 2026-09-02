@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from './Card';
-import { Attraction } from './ExperiencesData';
+import { Attraction } from '../../data/experiences';
 import {Link} from "react-router-dom";
 
 interface ExperiencesProps {

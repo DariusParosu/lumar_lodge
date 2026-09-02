@@ -1,6 +1,6 @@
 import React from 'react';
 import { Check } from 'lucide-react';
-import type { DetailedAmenityCategory } from './DetailsData';
+import type { DetailedAmenityCategory } from '../../data/details';
 
 interface DetailedAmenitiesProps {
   title: string;

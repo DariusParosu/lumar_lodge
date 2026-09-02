@@ -1,7 +1,7 @@
 import React from 'react';
 import { Languages } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { createDetailsData } from '../components/details/DetailsData';
+import { createDetailsData } from '../data/details';
 import { DetailedAmenities } from '../components/details/DetailedAmenities';
 import { OutdoorHero } from '../components/details/OutdoorHero';
 import { PolicyCard } from '../components/details/PolicyCard';
@@ -25,7 +25,7 @@ export const Details: React.FC = () => {
   } = createDetailsData(t);
 
   return (
-    <div id="details" className="bg-cream px-4 pb-20 pt-28">
+    <div id="details" className="bg-cream px-4 pb-20 pt-32 xl:pt-28">
       <div className="mx-auto max-w-7xl">
         <div className="mb-12 text-center">
           <h1 className="mb-3 font-display text-5xl font-bold text-dark-green">

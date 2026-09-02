@@ -1,46 +1,136 @@
-# Getting Started with Create React App
+# Lumar Lodge
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Website pentru Lumar Lodge, construit cu React, TypeScript si Tailwind CSS, cu suport bilingv RO/EN si rute separate pentru continutul principal.
 
-## Available Scripts
+## Ce include proiectul
 
-In the project directory, you can run:
+- homepage cu hero, sectiune de facilitati si prezentare despre proprietate
+- pagina de experiente locale
+- pagina de detalii despre cazare
+- galerie foto cu tab-uri si lightbox
+- navbar, footer si buton WhatsApp plutitor
+- suport i18n cu comutator de limba si sincronizare URL
 
-### `npm start`
+## Rute
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- `/` redirectioneaza catre `/ro`
+- `/:lang` pagina principala
+- `/:lang/experiente` si `/:lang/experiences`
+- `/:lang/detalii` si `/:lang/details`
+- `/:lang/galerie` si `/:lang/gallery`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Limbi acceptate:
 
-### `npm test`
+- `ro`
+- `en`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Rutele invalide pentru limba duc inapoi la `/ro`.
 
-### `npm run build`
+## Stack tehnic
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- React 18
+- TypeScript 5.9
+- Tailwind CSS 3.4
+- React Router DOM 7
+- i18next + react-i18next
+- lucide-react
+- swiper
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Scripturi disponibile
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- `npm start` - porneste aplicatia in modul development
+- `npm test` - ruleaza testele
+- `npm run build` - creeaza build-ul de productie
+- `npm run eject` - expune configuratia CRA
 
-### `npm run eject`
+## Instalare si rulare
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+npm install
+npm start
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Aplicatia ruleaza implicit la `http://localhost:3000`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Pentru build de productie:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+npm run build
+```
 
-## Learn More
+## Structura principala
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```text
+src/
+  components/
+    details/
+    experiences/
+    home/
+    shared/
+  data/
+  pages/
+  App.tsx
+  i18n.ts
+  index.tsx
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Functionalitati principale
+
+### Home
+
+- hero cu mesaj principal si CTA
+- bara de facilitati
+- sectiune despre proprietate
+
+### Experiences
+
+- experiente locale grupate pe categorii
+- carduri reutilizabile
+- traduceri dinamice pentru titluri si descrieri
+
+### Details
+
+- informatii despre programul de sosire si plecare
+- reguli de cazare
+- facilitati detaliate
+- configuratia camerelor
+- informatii despre gradina si exterior
+- pret estimativ pe noapte
+
+### Gallery
+
+- tab-uri pentru categorii de imagini
+- grila responsive
+- lightbox pentru vizualizare marita
+
+## i18n
+
+Configurarea de limba se afla in `src/i18n.ts`.
+
+Resursele incluse in prezent:
+
+- romana
+- engleza
+
+Comportament:
+
+- limba este detectata si sincronizata cu URL-ul
+- switcher-ul schimba doar parametrul `lang`
+- continutul foloseste cheile din `react-i18next`
+
+## Conectari externe
+
+- Google Maps embed pentru locatie
+- WhatsApp link cu mesaj precompletat
+- imagini externe / assets de inlocuit cu cele finale, daca este cazul
+
+## Nota despre documentatie
+
+Acest `README.md` consolideaza documentatia care era separata in:
+
+- `IMPLEMENTATION.md`
+- `SETUP_I18N.md`
+
+## Status
+
+Proiectul este configurat ca site multi-page cu navigare pe baza de ruta si suport bilingv RO/EN.

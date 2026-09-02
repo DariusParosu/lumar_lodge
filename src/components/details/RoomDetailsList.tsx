@@ -1,5 +1,5 @@
 import React from 'react';
-import type { RoomDetail } from './DetailsTypes';
+import type { RoomDetail } from '../../data/details';
 
 interface RoomDetailsListProps {
   rooms: RoomDetail[];

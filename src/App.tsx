@@ -2,13 +2,13 @@ import { BrowserRouter, Routes, Route, Navigate, useParams } from 'react-router-
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import './App.css';
-import { Navbar } from './components/Navbar';
+import { Navbar } from './components/shared/Navbar';
 import { Home } from './pages/Home';
 import { Experiences } from './pages/Experiences';
 import { Gallery } from './pages/Gallery';
 import { Details } from './pages/Details';
-import { Footer } from './components/Footer';
-import { WhatsAppButton } from './components/WhatsAppButton';
+import { Footer } from './components/shared/Footer';
+import { WhatsAppButton } from './components/shared/WhatsAppButton';
 
 const LanguageWrapper: React.FC = () => {
   const { lang } = useParams<{ lang: string }>();

@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import {Link, useLocation, useNavigate, useParams} from 'react-router-dom';
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -22,18 +22,26 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav className="fixed w-full top-0 z-50 bg-cream shadow-lg border-b-2 border-gold-accent border-opacity-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main navbar container - relative for absolute positioning inside */}
         <div className="relative flex items-center py-8 justify-center">
           {/* Logo - Absolute Left */}
           <div className="absolute left-0 flex-shrink-0 -rotate-3 hover:-rotate-6 transition-transform duration-300 min-w-fit">
-            <Link to={`/${lang}/`} className="text-4xl md:text-5xl font-bold text-dark-green font-display hover:text-gold-accent transition-colors duration-300">
-              Lumar Lodge
+            <Link
+              to={`/${lang}/`}
+              className="inline-flex items-center gap-3 text-4xl md:text-5xl font-bold text-dark-green font-display hover:text-gold-accent transition-colors duration-300"
+            >
+              <img
+                src="/favicon.webp"
+                alt="LuMar Lodge logo"
+                className="h-12 w-12 md:h-14 md:w-14 rounded-full object-cover shadow-md"
+              />
+              <span>LuMar Lodge</span>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-12">
+          <div className="hidden xl:flex items-center gap-12">
             {navLinks.map((link) => (
               <Link
                 key={link.label}
@@ -47,12 +55,12 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Language Switcher - Absolute Right */}
-          <div className="absolute right-0 hidden lg:flex flex-shrink-0 min-w-fit">
+          <div className="absolute right-0 hidden xl:flex flex-shrink-0 min-w-fit">
             <LanguageSwitcher />
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="lg:hidden ml-auto">
+          <div className="xl:hidden ml-auto">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-dark-green focus:outline-none p-2 hover:bg-cream rounded-lg transition-colors duration-300"
@@ -64,7 +72,7 @@ export const Navbar: React.FC = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="lg:hidden pb-6 border-t border-gold-accent border-opacity-20">
+          <div className="xl:hidden pb-6 border-t border-gold-accent border-opacity-20">
             <div className="flex flex-col space-y-2 pt-4">
               {navLinks.map((link) => (
                 <Link
@@ -109,11 +117,39 @@ const MobileLanguageButton: React.FC<{ lang: 'ro' | 'en'; currentLang?: string; 
   label,
 }) => {
   const { i18n } = useTranslation();
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const handleClick = () => {
     if (lang === currentLang) return;
+
     i18n.changeLanguage(lang);
-    window.location.href = `/${lang}`;
+
+    const currentPath = location.pathname;
+
+    // Map routes between languages
+    let newPath = currentPath.replace(`/${currentLang}`, `/${lang}`);
+
+    // Handle route translations
+    if (newPath.includes('/detalii')) {
+      newPath = newPath.replace('/detalii', lang === 'en' ? '/details' : '/detalii');
+    } else if (newPath.includes('/details')) {
+      newPath = newPath.replace('/details', lang === 'en' ? '/details' : '/detalii');
+    }
+
+    if (newPath.includes('/experiente')) {
+      newPath = newPath.replace('/experiente', lang === 'en' ? '/experiences' : '/experiente');
+    } else if (newPath.includes('/experiences')) {
+      newPath = newPath.replace('/experiences', lang === 'en' ? '/experiences' : '/experiente');
+    }
+
+    if (newPath.includes('/galerie')) {
+      newPath = newPath.replace('/galerie', lang === 'en' ? '/gallery' : '/galerie');
+    } else if (newPath.includes('/gallery')) {
+      newPath = newPath.replace('/gallery', lang === 'en' ? '/gallery' : '/galerie');
+    }
+
+    navigate(newPath || `/${lang}`);
   };
 
   return (

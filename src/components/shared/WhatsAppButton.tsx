@@ -1,9 +1,11 @@
 import React from 'react';
 import { MessageCircle } from 'lucide-react';
+import { useTranslation } from "react-i18next";
 
 export const WhatsAppButton: React.FC = () => {
+  const { t } = useTranslation();
   const phoneNumber = '+40756294324';
-  const message = encodeURIComponent('Salut! Sunt interesat de Lumar Lodge.');
+  const message = encodeURIComponent(t('whatsapp.message'));
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
 
   return (
@@ -16,7 +18,7 @@ export const WhatsAppButton: React.FC = () => {
     >
       <MessageCircle size={32} />
       <span className="absolute bottom-full right-0 mb-2 bg-dark-green text-cream px-4 py-2 rounded-lg text-sm font-body whitespace-nowrap opacity-0 group-hover:opacity-100 transition">
-        Chat pe WhatsApp
+        {t('whatsapp.text')}
       </span>
     </a>
   );

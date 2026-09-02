@@ -32,7 +32,7 @@ export const galleryImages: Record<GalleryTab, GalleryImage[]> = {
     { src: '/images/bedrooms/827943858.webp', alt: '' },
     { src: '/images/bedrooms/827943881.webp', alt: '' },
     { src: '/images/bedrooms/827943961.webp', alt: '' },
-    { src: '/images/bedrooms/862464075.webp', alt: '' },
+    { src: '/images/bedrooms/827943873.webp', alt: '' },
   ],
   bathrooms: [
     { src: '/images/bathrooms/827943844.webp', alt: '' },

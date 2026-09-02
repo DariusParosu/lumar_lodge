@@ -1,6 +1,6 @@
 import React from 'react';
 import { Trees } from 'lucide-react';
-import type { OutdoorFeature } from './DetailsTypes';
+import type { OutdoorFeature } from '../../data/details';
 
 const FeatureChip: React.FC<OutdoorFeature> = ({ label }) => (
   <span className="inline-flex items-center rounded-full border border-dark-green/10 bg-white px-4 py-2 text-sm font-medium text-dark-green shadow-sm">
