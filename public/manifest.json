@@ -1,15 +1,16 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "LuMar Lodge",
+  "name": "LuMar Lodge - Luxury Mountain Chalet",
+  "description": "A luxury mountain chalet in the heart of the Carpathians offering authentic experiences and premium comfort",
   "icons": [
     {
       "src": "favicon.webp",
-      "sizes": "512x512 192x192 64x64 32x32 24x24 16x16",
+      "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     }
   ],
-  "start_url": ".",
+  "start_url": "/ro",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#2C4A3E",
+  "background_color": "#F9F6F0"
 }

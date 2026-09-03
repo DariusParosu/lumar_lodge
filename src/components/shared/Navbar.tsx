@@ -3,21 +3,22 @@ import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import { ROUTE_TRANSLATIONS } from '../../data/constants';
 
 export const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
   const { lang } = useParams<{ lang: string }>();
 
-  const experiencesPath = lang === 'en' ? '/experiences' : '/experiente';
-  const detailsPath = lang === 'en' ? '/details' : '/detalii';
-  const galleryPath = lang === 'en' ? '/gallery' : '/galerie';
+  const getLangKey = (key: keyof typeof ROUTE_TRANSLATIONS.ro): string => {
+    return lang === 'en' ? ROUTE_TRANSLATIONS.en[key] : ROUTE_TRANSLATIONS.ro[key];
+  };
 
   const navLinks = [
     { label: t('navbar.home'), to: `/${lang}/` },
-    { label: t('navbar.experiences'), to: `/${lang}${experiencesPath}` },
-    { label: t('navbar.details'), to: `/${lang}${detailsPath}` },
-    { label: t('navbar.gallery'), to: `/${lang}${galleryPath}` },
+    { label: t('navbar.experiences'), to: `/${lang}${getLangKey('experiences')}` },
+    { label: t('navbar.details'), to: `/${lang}${getLangKey('details')}` },
+    { label: t('navbar.gallery'), to: `/${lang}${getLangKey('gallery')}` },
   ];
 
   return (
@@ -124,30 +125,22 @@ const MobileLanguageButton: React.FC<{ lang: 'ro' | 'en'; currentLang?: string; 
     if (lang === currentLang) return;
 
     i18n.changeLanguage(lang);
-
     const currentPath = location.pathname;
-
-    // Map routes between languages
+    
+    // Map route between languages using clean logic
     let newPath = currentPath.replace(`/${currentLang}`, `/${lang}`);
-
-    // Handle route translations
-    if (newPath.includes('/detalii')) {
-      newPath = newPath.replace('/detalii', lang === 'en' ? '/details' : '/detalii');
-    } else if (newPath.includes('/details')) {
-      newPath = newPath.replace('/details', lang === 'en' ? '/details' : '/detalii');
-    }
-
-    if (newPath.includes('/experiente')) {
-      newPath = newPath.replace('/experiente', lang === 'en' ? '/experiences' : '/experiente');
-    } else if (newPath.includes('/experiences')) {
-      newPath = newPath.replace('/experiences', lang === 'en' ? '/experiences' : '/experiente');
-    }
-
-    if (newPath.includes('/galerie')) {
-      newPath = newPath.replace('/galerie', lang === 'en' ? '/gallery' : '/galerie');
-    } else if (newPath.includes('/gallery')) {
-      newPath = newPath.replace('/gallery', lang === 'en' ? '/gallery' : '/galerie');
-    }
+    
+    // Replace all route translations
+    (Object.keys(ROUTE_TRANSLATIONS.ro) as Array<keyof typeof ROUTE_TRANSLATIONS.ro>).forEach(key => {
+      const roRoute = ROUTE_TRANSLATIONS.ro[key];
+      const enRoute = ROUTE_TRANSLATIONS.en[key];
+      
+      if (newPath.includes(roRoute)) {
+        newPath = newPath.replace(roRoute, ROUTE_TRANSLATIONS[lang][key]);
+      } else if (newPath.includes(enRoute)) {
+        newPath = newPath.replace(enRoute, ROUTE_TRANSLATIONS[lang][key]);
+      }
+    });
 
     navigate(newPath || `/${lang}`);
   };

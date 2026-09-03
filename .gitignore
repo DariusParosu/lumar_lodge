@@ -26,10 +26,36 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
+
+# runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
 
 # system files
 .DS_Store
 Thumbs.db
+.env*.local
+*.swp
+*.swo
+*~
+
+# IDE temp files
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.VS_Code
+*.sublime-project
+*.sublime-workspace
+
+# macOS
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
 
 # IDEs & Editors
 .idea/
@@ -37,3 +63,8 @@ Thumbs.db
 *.iws
 *.ipr
 .vscode/
+
+# SEO & Build artifacts
+sitemap.xml
+sitemap*.xml
+robots.txt
